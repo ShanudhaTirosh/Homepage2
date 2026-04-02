@@ -3,8 +3,11 @@ name: Extract novadash.zip to root
 on:
   push:
     paths:
-      - 'novadash.zip'   # auto trigger when zip updates
-  workflow_dispatch:     # manual trigger (Run button)
+      - 'novadash.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # 🔥 THIS FIXES YOUR ERROR
 
 jobs:
   unzip:
@@ -18,8 +21,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y unzip
 
       - name: Extract ZIP
-        run: |
-          unzip -o novadash.zip -d temp
+        run: unzip -o novadash.zip -d temp
 
       - name: Move files to root
         run: |
