@@ -1,0 +1,45 @@
+{
+  "name": "NovaDash",
+  "short_name": "NovaDash",
+  "description": "Your personal browser start page — cloud-synced, AI-powered, infinitely customizable.",
+  "start_url": "./dashboard.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080b14",
+  "theme_color": "#7c6ef7",
+  "orientation": "any",
+  "lang": "en",
+  "categories": ["productivity", "utilities"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Add Link",
+      "short_name": "Add",
+      "description": "Quickly add a new link to your dashboard",
+      "url": "./dashboard.html?action=add-link",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI Assistant",
+      "short_name": "AI",
+      "description": "Open the AI assistant",
+      "url": "./dashboard.html?action=ai",
+      "icons": [{ "src": "assets/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "screenshots": [],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

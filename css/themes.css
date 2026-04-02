@@ -1,0 +1,439 @@
+/* ═══════════════════════════════════════════════════════════
+   NovaDash 3.0 — themes.css
+   12 Pre-built color themes + CSS custom property system
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Base token declarations (fallback) ── */
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --transition-fast:   0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow:   0.4s ease;
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+  --shadow-elevated: 0 16px 48px rgba(0,0,0,0.4);
+}
+
+/* ══════════════════════════════════
+   1. MIDNIGHT (Default Dark)
+   ══════════════════════════════════ */
+[data-theme="midnight"] {
+  --bg-primary:       #080b14;
+  --bg-secondary:     #0d1120;
+  --bg-tertiary:      #141826;
+  --bg-elevated:      #1a2030;
+  --glass-bg:         rgba(124, 110, 247, 0.06);
+  --glass-bg-hover:   rgba(124, 110, 247, 0.10);
+  --glass-border:     rgba(124, 110, 247, 0.14);
+  --glass-border-hover: rgba(124, 110, 247, 0.28);
+  --accent-primary:   #7c6ef7;
+  --accent-secondary: #4ecdc4;
+  --accent-glow:      rgba(124, 110, 247, 0.35);
+  --accent-gradient:  linear-gradient(135deg, #7c6ef7, #4ecdc4);
+  --text-primary:     #f0f2ff;
+  --text-secondary:   #a8b0d0;
+  --text-muted:       #5a6380;
+  --text-on-accent:   #ffffff;
+  --danger:           #ff4f6a;
+  --success:          #4ecdc4;
+  --warning:          #ffd93d;
+  --info:             #4ecdc4;
+  --border-subtle:    rgba(255,255,255,0.06);
+  --scrollbar-thumb:  rgba(124, 110, 247, 0.3);
+  --navbar-bg:        rgba(8, 11, 20, 0.85);
+  --modal-bg:         rgba(13, 17, 32, 0.97);
+  --input-bg:         rgba(20, 24, 38, 0.8);
+  --input-border:     rgba(124, 110, 247, 0.2);
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --orb-1:            rgba(124, 110, 247, 0.18);
+  --orb-2:            rgba(78, 205, 196, 0.18);
+}
+
+/* ══════════════════════════════════
+   2. OCEAN
+   ══════════════════════════════════ */
+[data-theme="ocean"] {
+  --bg-primary:       #030d1a;
+  --bg-secondary:     #071428;
+  --bg-tertiary:      #0c1e38;
+  --bg-elevated:      #122648;
+  --glass-bg:         rgba(0, 180, 200, 0.07);
+  --glass-bg-hover:   rgba(0, 180, 200, 0.12);
+  --glass-border:     rgba(0, 200, 220, 0.15);
+  --glass-border-hover: rgba(0, 200, 220, 0.30);
+  --accent-primary:   #00c8d4;
+  --accent-secondary: #0077ff;
+  --accent-glow:      rgba(0, 200, 212, 0.35);
+  --accent-gradient:  linear-gradient(135deg, #00c8d4, #0077ff);
+  --text-primary:     #e8f4ff;
+  --text-secondary:   #8ab4d8;
+  --text-muted:       #4a6a8a;
+  --text-on-accent:   #ffffff;
+  --danger:           #ff4f6a;
+  --success:          #00c8d4;
+  --warning:          #ffd93d;
+  --info:             #00c8d4;
+  --border-subtle:    rgba(255,255,255,0.05);
+  --scrollbar-thumb:  rgba(0, 200, 212, 0.3);
+  --navbar-bg:        rgba(3, 13, 26, 0.85);
+  --modal-bg:         rgba(7, 20, 40, 0.97);
+  --input-bg:         rgba(12, 30, 56, 0.8);
+  --input-border:     rgba(0, 200, 220, 0.2);
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --orb-1:            rgba(0, 200, 212, 0.15);
+  --orb-2:            rgba(0, 119, 255, 0.15);
+}
+
+/* ══════════════════════════════════
+   3. FOREST
+   ══════════════════════════════════ */
+[data-theme="forest"] {
+  --bg-primary:       #050f08;
+  --bg-secondary:     #091510;
+  --bg-tertiary:      #0e1e14;
+  --bg-elevated:      #14281a;
+  --glass-bg:         rgba(52, 211, 100, 0.07);
+  --glass-bg-hover:   rgba(52, 211, 100, 0.12);
+  --glass-border:     rgba(52, 211, 100, 0.14);
+  --glass-border-hover: rgba(52, 211, 100, 0.28);
+  --accent-primary:   #34d364;
+  --accent-secondary: #a3e635;
+  --accent-glow:      rgba(52, 211, 100, 0.35);
+  --accent-gradient:  linear-gradient(135deg, #34d364, #a3e635);
+  --text-primary:     #e8f5ec;
+  --text-secondary:   #8ab89a;
+  --text-muted:       #4a6a54;
+  --text-on-accent:   #050f08;
+  --danger:           #ff4f6a;
+  --success:          #34d364;
+  --warning:          #ffd93d;
+  --info:             #34d364;
+  --border-subtle:    rgba(255,255,255,0.05);
+  --scrollbar-thumb:  rgba(52, 211, 100, 0.3);
+  --navbar-bg:        rgba(5, 15, 8, 0.85);
+  --modal-bg:         rgba(9, 21, 16, 0.97);
+  --input-bg:         rgba(14, 30, 20, 0.8);
+  --input-border:     rgba(52, 211, 100, 0.2);
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --orb-1:            rgba(52, 211, 100, 0.15);
+  --orb-2:            rgba(163, 230, 53, 0.12);
+}
+
+/* ══════════════════════════════════
+   4. SUNSET
+   ══════════════════════════════════ */
+[data-theme="sunset"] {
+  --bg-primary:       #130808;
+  --bg-secondary:     #1e0e0a;
+  --bg-tertiary:      #2a1410;
+  --bg-elevated:      #361a14;
+  --glass-bg:         rgba(255, 107, 53, 0.08);
+  --glass-bg-hover:   rgba(255, 107, 53, 0.13);
+  --glass-border:     rgba(255, 107, 53, 0.16);
+  --glass-border-hover: rgba(255, 107, 53, 0.30);
+  --accent-primary:   #ff6b35;
+  --accent-secondary: #ff3d8a;
+  --accent-glow:      rgba(255, 107, 53, 0.35);
+  --accent-gradient:  linear-gradient(135deg, #ff6b35, #ff3d8a);
+  --text-primary:     #fff5f0;
+  --text-secondary:   #d4937a;
+  --text-muted:       #7a4a38;
+  --text-on-accent:   #ffffff;
+  --danger:           #ff4f6a;
+  --success:          #4ecdc4;
+  --warning:          #ffd93d;
+  --info:             #ff6b35;
+  --border-subtle:    rgba(255,255,255,0.05);
+  --scrollbar-thumb:  rgba(255, 107, 53, 0.3);
+  --navbar-bg:        rgba(19, 8, 8, 0.85);
+  --modal-bg:         rgba(30, 14, 10, 0.97);
+  --input-bg:         rgba(42, 20, 16, 0.8);
+  --input-border:     rgba(255, 107, 53, 0.22);
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --orb-1:            rgba(255, 107, 53, 0.15);
+  --orb-2:            rgba(255, 61, 138, 0.15);
+}
+
+/* ══════════════════════════════════
+   5. ROSE GOLD
+   ══════════════════════════════════ */
+[data-theme="rose"] {
+  --bg-primary:       #120a0d;
+  --bg-secondary:     #1c1014;
+  --bg-tertiary:      #261518;
+  --bg-elevated:      #321a1e;
+  --glass-bg:         rgba(236, 72, 153, 0.07);
+  --glass-bg-hover:   rgba(236, 72, 153, 0.12);
+  --glass-border:     rgba(236, 72, 153, 0.15);
+  --glass-border-hover: rgba(236, 72, 153, 0.30);
+  --accent-primary:   #ec4899;
+  --accent-secondary: #f59e0b;
+  --accent-glow:      rgba(236, 72, 153, 0.35);
+  --accent-gradient:  linear-gradient(135deg, #ec4899, #f59e0b);
+  --text-primary:     #fff0f6;
+  --text-secondary:   #c490a4;
+  --text-muted:       #7a4a5c;
+  --text-on-accent:   #ffffff;
+  --danger:           #ff4f6a;
+  --success:          #4ecdc4;
+  --warning:          #ffd93d;
+  --info:             #ec4899;
+  --border-subtle:    rgba(255,255,255,0.05);
+  --scrollbar-thumb:  rgba(236, 72, 153, 0.3);
+  --navbar-bg:        rgba(18, 10, 13, 0.85);
+  --modal-bg:         rgba(28, 16, 20, 0.97);
+  --input-bg:         rgba(38, 21, 24, 0.8);
+  --input-border:     rgba(236, 72, 153, 0.2);
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --orb-1:            rgba(236, 72, 153, 0.15);
+  --orb-2:            rgba(245, 158, 11, 0.12);
+}
+
+/* ══════════════════════════════════
+   6. ICE (Dark + Electric Blue)
+   ══════════════════════════════════ */
+[data-theme="ice"] {
+  --bg-primary:       #080d14;
+  --bg-secondary:     #0d1320;
+  --bg-tertiary:      #121a2e;
+  --bg-elevated:      #18223c;
+  --glass-bg:         rgba(56, 189, 248, 0.07);
+  --glass-bg-hover:   rgba(56, 189, 248, 0.12);
+  --glass-border:     rgba(56, 189, 248, 0.15);
+  --glass-border-hover: rgba(56, 189, 248, 0.30);
+  --accent-primary:   #38bdf8;
+  --accent-secondary: #818cf8;
+  --accent-glow:      rgba(56, 189, 248, 0.35);
+  --accent-gradient:  linear-gradient(135deg, #38bdf8, #818cf8);
+  --text-primary:     #eef6ff;
+  --text-secondary:   #8ab2cc;
+  --text-muted:       #4a6070;
+  --text-on-accent:   #080d14;
+  --danger:           #ff4f6a;
+  --success:          #38bdf8;
+  --warning:          #ffd93d;
+  --info:             #38bdf8;
+  --border-subtle:    rgba(255,255,255,0.06);
+  --scrollbar-thumb:  rgba(56, 189, 248, 0.3);
+  --navbar-bg:        rgba(8, 13, 20, 0.85);
+  --modal-bg:         rgba(13, 19, 32, 0.97);
+  --input-bg:         rgba(18, 26, 46, 0.8);
+  --input-border:     rgba(56, 189, 248, 0.2);
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --orb-1:            rgba(56, 189, 248, 0.15);
+  --orb-2:            rgba(129, 140, 248, 0.12);
+}
+
+/* ══════════════════════════════════
+   7. PAPER (Light Mode)
+   ══════════════════════════════════ */
+[data-theme="paper"] {
+  --bg-primary:       #f5f0e8;
+  --bg-secondary:     #ede8dd;
+  --bg-tertiary:      #e4ddd0;
+  --bg-elevated:      #ffffff;
+  --glass-bg:         rgba(100, 60, 20, 0.06);
+  --glass-bg-hover:   rgba(100, 60, 20, 0.10);
+  --glass-border:     rgba(100, 60, 20, 0.14);
+  --glass-border-hover: rgba(100, 60, 20, 0.24);
+  --accent-primary:   #2d1810;
+  --accent-secondary: #7c4f2a;
+  --accent-glow:      rgba(45, 24, 16, 0.2);
+  --accent-gradient:  linear-gradient(135deg, #2d1810, #7c4f2a);
+  --text-primary:     #1a110a;
+  --text-secondary:   #5a4030;
+  --text-muted:       #9a8070;
+  --text-on-accent:   #f5f0e8;
+  --danger:           #cc2222;
+  --success:          #2a7a40;
+  --warning:          #cc7700;
+  --info:             #1a6080;
+  --border-subtle:    rgba(0,0,0,0.08);
+  --scrollbar-thumb:  rgba(45, 24, 16, 0.3);
+  --navbar-bg:        rgba(245, 240, 232, 0.92);
+  --modal-bg:         rgba(245, 240, 232, 0.97);
+  --input-bg:         rgba(255, 255, 255, 0.8);
+  --input-border:     rgba(100, 60, 20, 0.2);
+  --card-shadow:      0 4px 16px rgba(0,0,0,0.12);
+  --orb-1:            rgba(45, 24, 16, 0.06);
+  --orb-2:            rgba(124, 79, 42, 0.06);
+}
+
+/* ══════════════════════════════════
+   8. LATTE (Light Cream)
+   ══════════════════════════════════ */
+[data-theme="latte"] {
+  --bg-primary:       #f7f2ec;
+  --bg-secondary:     #ede5d8;
+  --bg-tertiary:      #e0d5c4;
+  --bg-elevated:      #ffffff;
+  --glass-bg:         rgba(139, 98, 62, 0.07);
+  --glass-bg-hover:   rgba(139, 98, 62, 0.12);
+  --glass-border:     rgba(139, 98, 62, 0.18);
+  --glass-border-hover: rgba(139, 98, 62, 0.28);
+  --accent-primary:   #8b623e;
+  --accent-secondary: #d4a47a;
+  --accent-glow:      rgba(139, 98, 62, 0.2);
+  --accent-gradient:  linear-gradient(135deg, #8b623e, #d4a47a);
+  --text-primary:     #2c1e14;
+  --text-secondary:   #6b4c35;
+  --text-muted:       #a08060;
+  --text-on-accent:   #ffffff;
+  --danger:           #cc2222;
+  --success:          #2a7a40;
+  --warning:          #cc7700;
+  --info:             #1a6080;
+  --border-subtle:    rgba(0,0,0,0.07);
+  --scrollbar-thumb:  rgba(139, 98, 62, 0.3);
+  --navbar-bg:        rgba(247, 242, 236, 0.92);
+  --modal-bg:         rgba(247, 242, 236, 0.97);
+  --input-bg:         rgba(255, 255, 255, 0.8);
+  --input-border:     rgba(139, 98, 62, 0.22);
+  --card-shadow:      0 4px 16px rgba(0,0,0,0.1);
+  --orb-1:            rgba(139, 98, 62, 0.08);
+  --orb-2:            rgba(212, 164, 122, 0.08);
+}
+
+/* ══════════════════════════════════
+   9. NEON (Electric Purple)
+   ══════════════════════════════════ */
+[data-theme="neon"] {
+  --bg-primary:       #050507;
+  --bg-secondary:     #090910;
+  --bg-tertiary:      #0e0e18;
+  --bg-elevated:      #141422;
+  --glass-bg:         rgba(200, 50, 255, 0.07);
+  --glass-bg-hover:   rgba(200, 50, 255, 0.13);
+  --glass-border:     rgba(200, 50, 255, 0.18);
+  --glass-border-hover: rgba(200, 50, 255, 0.35);
+  --accent-primary:   #c832ff;
+  --accent-secondary: #ff2090;
+  --accent-glow:      rgba(200, 50, 255, 0.5);
+  --accent-gradient:  linear-gradient(135deg, #c832ff, #ff2090);
+  --text-primary:     #f8f0ff;
+  --text-secondary:   #b090cc;
+  --text-muted:       #6040808;
+  --text-on-accent:   #ffffff;
+  --danger:           #ff2050;
+  --success:          #00ffaa;
+  --warning:          #ffee00;
+  --info:             #c832ff;
+  --border-subtle:    rgba(255,255,255,0.04);
+  --scrollbar-thumb:  rgba(200, 50, 255, 0.4);
+  --navbar-bg:        rgba(5, 5, 7, 0.9);
+  --modal-bg:         rgba(9, 9, 16, 0.98);
+  --input-bg:         rgba(14, 14, 24, 0.9);
+  --input-border:     rgba(200, 50, 255, 0.25);
+  --card-shadow:      0 8px 32px rgba(200, 50, 255, 0.15);
+  --orb-1:            rgba(200, 50, 255, 0.2);
+  --orb-2:            rgba(255, 32, 144, 0.2);
+}
+
+/* ══════════════════════════════════
+   10. CARBON
+   ══════════════════════════════════ */
+[data-theme="carbon"] {
+  --bg-primary:       #0a0a0a;
+  --bg-secondary:     #111111;
+  --bg-tertiary:      #1a1a1a;
+  --bg-elevated:      #222222;
+  --glass-bg:         rgba(255, 50, 50, 0.06);
+  --glass-bg-hover:   rgba(255, 50, 50, 0.10);
+  --glass-border:     rgba(255, 255, 255, 0.10);
+  --glass-border-hover: rgba(255, 50, 50, 0.25);
+  --accent-primary:   #ff3232;
+  --accent-secondary: #ff8800;
+  --accent-glow:      rgba(255, 50, 50, 0.35);
+  --accent-gradient:  linear-gradient(135deg, #ff3232, #ff8800);
+  --text-primary:     #f0f0f0;
+  --text-secondary:   #a0a0a0;
+  --text-muted:       #606060;
+  --text-on-accent:   #ffffff;
+  --danger:           #ff3232;
+  --success:          #00cc66;
+  --warning:          #ff8800;
+  --info:             #0088ff;
+  --border-subtle:    rgba(255,255,255,0.06);
+  --scrollbar-thumb:  rgba(255, 50, 50, 0.3);
+  --navbar-bg:        rgba(10, 10, 10, 0.9);
+  --modal-bg:         rgba(17, 17, 17, 0.98);
+  --input-bg:         rgba(26, 26, 26, 0.9);
+  --input-border:     rgba(255, 255, 255, 0.12);
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.5);
+  --orb-1:            rgba(255, 50, 50, 0.12);
+  --orb-2:            rgba(255, 136, 0, 0.10);
+}
+
+/* ══════════════════════════════════
+   11. SAKURA (Soft Pink Light)
+   ══════════════════════════════════ */
+[data-theme="sakura"] {
+  --bg-primary:       #fff5f8;
+  --bg-secondary:     #fde8ef;
+  --bg-tertiary:      #fad8e3;
+  --bg-elevated:      #ffffff;
+  --glass-bg:         rgba(219, 80, 120, 0.06);
+  --glass-bg-hover:   rgba(219, 80, 120, 0.10);
+  --glass-border:     rgba(219, 80, 120, 0.16);
+  --glass-border-hover: rgba(219, 80, 120, 0.28);
+  --accent-primary:   #db5078;
+  --accent-secondary: #f472b6;
+  --accent-glow:      rgba(219, 80, 120, 0.2);
+  --accent-gradient:  linear-gradient(135deg, #db5078, #f472b6);
+  --text-primary:     #2a0e18;
+  --text-secondary:   #7a3050;
+  --text-muted:       #c090a8;
+  --text-on-accent:   #ffffff;
+  --danger:           #cc1a40;
+  --success:          #2a8050;
+  --warning:          #b88000;
+  --info:             #5050cc;
+  --border-subtle:    rgba(219, 80, 120, 0.1);
+  --scrollbar-thumb:  rgba(219, 80, 120, 0.3);
+  --navbar-bg:        rgba(255, 245, 248, 0.92);
+  --modal-bg:         rgba(255, 245, 248, 0.97);
+  --input-bg:         rgba(255, 255, 255, 0.85);
+  --input-border:     rgba(219, 80, 120, 0.22);
+  --card-shadow:      0 4px 16px rgba(219, 80, 120, 0.12);
+  --orb-1:            rgba(219, 80, 120, 0.08);
+  --orb-2:            rgba(244, 114, 182, 0.08);
+}
+
+/* ══════════════════════════════════
+   12. CUSTOM (User-Defined — overridden by JS)
+   ══════════════════════════════════ */
+[data-theme="custom"] {
+  --bg-primary:       var(--custom-bg-primary, #080b14);
+  --bg-secondary:     var(--custom-bg-secondary, #0d1120);
+  --bg-tertiary:      var(--custom-bg-tertiary, #141826);
+  --bg-elevated:      var(--custom-bg-elevated, #1a2030);
+  --glass-bg:         var(--custom-glass-bg, rgba(124, 110, 247, 0.06));
+  --glass-bg-hover:   var(--custom-glass-bg-hover, rgba(124, 110, 247, 0.10));
+  --glass-border:     var(--custom-glass-border, rgba(124, 110, 247, 0.14));
+  --glass-border-hover: var(--custom-glass-border-hover, rgba(124, 110, 247, 0.28));
+  --accent-primary:   var(--custom-accent-primary, #7c6ef7);
+  --accent-secondary: var(--custom-accent-secondary, #4ecdc4);
+  --accent-glow:      var(--custom-accent-glow, rgba(124, 110, 247, 0.35));
+  --accent-gradient:  var(--custom-accent-gradient, linear-gradient(135deg, #7c6ef7, #4ecdc4));
+  --text-primary:     var(--custom-text-primary, #f0f2ff);
+  --text-secondary:   var(--custom-text-secondary, #a8b0d0);
+  --text-muted:       var(--custom-text-muted, #5a6380);
+  --text-on-accent:   var(--custom-text-on-accent, #ffffff);
+  --danger:           #ff4f6a;
+  --success:          #4ecdc4;
+  --warning:          #ffd93d;
+  --info:             var(--custom-accent-primary, #7c6ef7);
+  --border-subtle:    rgba(255,255,255,0.06);
+  --scrollbar-thumb:  var(--custom-accent-primary, rgba(124, 110, 247, 0.3));
+  --navbar-bg:        var(--custom-navbar-bg, rgba(8, 11, 20, 0.85));
+  --modal-bg:         var(--custom-modal-bg, rgba(13, 17, 32, 0.97));
+  --input-bg:         var(--custom-input-bg, rgba(20, 24, 38, 0.8));
+  --input-border:     var(--custom-input-border, rgba(124, 110, 247, 0.2));
+  --card-shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --orb-1:            rgba(124, 110, 247, 0.18);
+  --orb-2:            rgba(78, 205, 196, 0.18);
+}
