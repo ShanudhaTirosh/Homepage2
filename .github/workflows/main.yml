@@ -1,0 +1,36 @@
+name: Extract novadash.zip to root
+
+on:
+  push:
+    paths:
+      - 'novadash.zip'   # auto trigger when zip updates
+  workflow_dispatch:     # manual trigger (Run button)
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Install unzip
+        run: sudo apt-get update && sudo apt-get install -y unzip
+
+      - name: Extract ZIP
+        run: |
+          unzip -o novadash.zip -d temp
+
+      - name: Move files to root
+        run: |
+          shopt -s dotglob
+          mv temp/* .
+          rm -rf temp novadash.zip
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .
+          git commit -m "Extract novadash.zip to root" || echo "No changes to commit"
+          git push
