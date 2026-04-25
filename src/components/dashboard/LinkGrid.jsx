@@ -18,7 +18,7 @@ import {
   useSortable,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Plus, FolderPlus } from 'lucide-react';
 import LinkCard from './LinkCard';
 import SectionBlock from './SectionBlock';
@@ -128,7 +128,7 @@ export default function LinkGrid({
       if (!over || active.id === over.id) return;
 
       // Find the section containing the active item
-      for (const [catId, catLinks] of Object.entries(groupedLinks)) {
+      for (const catLinks of Object.values(groupedLinks)) {
         const oldIndex = catLinks.findIndex((l) => l.id === active.id);
         const newIndex = catLinks.findIndex((l) => l.id === over.id);
         if (oldIndex !== -1 && newIndex !== -1) {
