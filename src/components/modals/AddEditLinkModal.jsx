@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { Link2, Type, Globe, Tag, FolderPlus } from 'lucide-react';
+import { Type, Globe, FolderPlus } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import GlassModal from '../ui/GlassModal';
 import IconPicker from './IconPicker';
@@ -53,7 +53,9 @@ export default function AddEditLinkModal({ isOpen, onClose, onSave, link, catego
       try {
         const domain = new URL(url).hostname.replace('www.','');
         setTitle(domain.split('.')[0].charAt(0).toUpperCase() + domain.split('.')[0].slice(1));
-      } catch {}
+      } catch {
+        // Silently ignore invalid URL parsing
+      }
     }
   };
 

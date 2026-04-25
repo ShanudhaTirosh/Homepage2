@@ -27,12 +27,15 @@ export function shortUrl(url) {
 }
 
 /**
- * Get the Google Favicon URL for a domain
+ * Get a high-quality favicon for a URL using Google's modern favicon service
  */
 export function getFaviconUrl(url) {
   try {
-    const domain = new URL(url).hostname;
-    return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+    if (!url) return null;
+    // Normalize URL for the service
+    const targetUrl = url.startsWith('http') ? url : `https://${url}`;
+    // Using FaviconV2 for better quality and higher resolution (128px)
+    return `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${targetUrl}&size=128`;
   } catch {
     return null;
   }

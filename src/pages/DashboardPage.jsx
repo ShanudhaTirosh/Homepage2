@@ -90,7 +90,7 @@ function DashboardContent() {
       toast.success('Section created ✓');
     }
     setCatModal({ open: false, category: null });
-  }, [catName, catEmoji, catModal.category, addCategory, categories.length, user?.uid]);
+  }, [catName, catEmoji, catModal.category, addCategory, categories.length, user]);
 
   const handleDelete = useCallback(async () => {
     if (deleteModal.type === 'link') {
@@ -138,6 +138,7 @@ function DashboardContent() {
 
       {/* Add/Edit Link Modal */}
       <AddEditLinkModal
+        key={linkModal.open ? (linkModal.link?.id || 'new-link') : 'closed'}
         isOpen={linkModal.open}
         onClose={() => setLinkModal({ open: false, link: null, categoryId: null })}
         onSave={handleSaveLink}
