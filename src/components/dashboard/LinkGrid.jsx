@@ -24,6 +24,10 @@ import LinkCard from './LinkCard';
 import SectionBlock from './SectionBlock';
 import { useDashboard } from '../../hooks/useLinks';
 import { useEditMode } from '../../hooks/useEditMode';
+import { useAuth } from '../../hooks/useAuth';
+import { seedUserDashboard } from '../../utils/seedData';
+import { toast } from 'react-hot-toast';
+import { Sparkles } from 'lucide-react';
 
 // ═══════════════════════════════════════════
 // SORTABLE LINK WRAPPER
@@ -72,6 +76,8 @@ export default function LinkGrid({
 }) {
   const { links, categories, reorderLinks } = useDashboard();
   const { editMode, enableEditMode } = useEditMode();
+  const { user } = useAuth();
+  const [seeding, setSeeding] = useState(false);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -81,6 +87,21 @@ export default function LinkGrid({
       coordinateGetter: sortableKeyboardCoordinates,
     })
   );
+
+  const handleSeed = async () => {
+    if (!user?.uid || seeding) return;
+    setSeeding(true);
+    const tid = toast.loading('Building your universe...');
+    try {
+      await seedUserDashboard(user.uid);
+      toast.success('Developer dashboard ready!', { id: tid });
+    } catch (err) {
+      console.error('Seed error:', err);
+      toast.error('Failed to populate dashboard', { id: tid });
+    } finally {
+      setSeeding(false);
+    }
+  };
 
   // Group links by category
   const groupedLinks = useMemo(() => {
@@ -138,16 +159,26 @@ export default function LinkGrid({
         <div className="empty-icon">🌌</div>
         <h2 className="empty-title">Your universe awaits</h2>
         <p className="empty-desc">
-          Start by adding your first category and link to build your dashboard.
+          Start fresh or instantly populate your dashboard with common developer tools and documentation.
         </p>
         <div className="empty-actions">
           <button
-            className="btn-nd btn-nd-primary"
+            className="btn-nd btn-nd-secondary"
             onClick={() => { enableEditMode(); onAddCategory(); }}
             id="first-category-btn"
           >
             <FolderPlus size={16} />
             <span>Create First Section</span>
+          </button>
+          
+          <button
+            className="btn-nd btn-nd-primary"
+            onClick={handleSeed}
+            disabled={seeding}
+            id="seed-dashboard-btn"
+          >
+            <Sparkles size={16} />
+            <span>{seeding ? 'Populating...' : 'Populate Developer Sites'}</span>
           </button>
         </div>
       </motion.div>
