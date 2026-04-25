@@ -32,10 +32,9 @@ export function shortUrl(url) {
 export function getFaviconUrl(url) {
   try {
     if (!url) return null;
-    // Normalize URL for the service
-    const targetUrl = url.startsWith('http') ? url : `https://${url}`;
-    // Using FaviconV2 for better quality and higher resolution (128px)
-    return `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${targetUrl}&size=128`;
+    const domain = new URL(url).hostname;
+    // s2 is more resilient than V2 (it returns a default globe icon instead of a 404 error)
+    return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
   } catch {
     return null;
   }
